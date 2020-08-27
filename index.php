@@ -1,6 +1,4 @@
 <?php
 
-include_once("really.html");
-
-
+include_once("array.html");
 ?>
