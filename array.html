@@ -17,34 +17,15 @@ body {
 .header {
   padding: 30px;
   text-align: center;
-  background: black;
+  background:blue;
 }
 
 .header h1 {
   font-size: 50px;
 }
 
-/* Style the top navigation bar */
-.topnav {
-  overflow: hidden;
-  background-color: white;
-}
 
-/* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
 
-/* Change color on hover */
-.topnav a:hover {
-  background-color: orange;
-  color: black;
-}
 
 /* Create two unequal columns that floats next to each other */
 /* Left column */
@@ -143,71 +124,407 @@ ul li {
 <div class="row">
   <div class="leftcolumn">
     <div class="card">
-      
-      
-      <div class="fakeimg" style="height:615px;">
+      <div class="fakeimg" style="height:11115px;">
 
 
 <p>
+  In this tutorial, you will learn to work with arrays. You will learn to declare, initialize and access elements of an array with the help of examples.
 
-An array is collection of items stored at contiguous memory locations. The idea is to store multiple items of same type together. This makes it easier to calculate the position of each element by simply adding an offset to a base value, i.e., the memory location of the first element of the array (generally denoted by the name of the array).
-
-For simplicity, we can think of an array a fleet of stairs where on each step is placed a value (let’s say one of your friends). Here, you can identify the location of any of your friends by simply knowing the count of the step they are on.
-Remember: “Location of next index depends on the data type we use”.
-
-
-
-
-
-
-
-</p>
-
-<p>
-
-Each element can be uniquely identified by their index in the array (in a similar way as you could identify your friends by the step on which they were on in the above example).
+  <br>
 <br>
-Types of indexing in array:
+<center>
+<img src="https://cdn.programiz.com/sites/tutorial2program/files/c-arrays.jpg">
+</center>
 <br>
-0 (zero-based indexing): The first element of the array is indexed by subscript of 0
 <br>
-1 (one-based indexing): The second element of the array is indexed by subscript of 1
+An array is a variable that can store multiple values. For example, if you want to store 100 integers, you can create an array for it.
 <br>
-n (n-based indexing): The base index of an array can be freely chosen. Usually programming languages allowing n-based indexing also allow negative index values and other scalar data types like enumerations, or characters may be used as an array index.
-
-</p>
-<p>
-For example, an array of 10 32-bit (4-byte) integer variables, with indices 0 through 9, may be stored as 10 words at memory addresses 2000, 2004, 2008, ..., 2036, so that the element with index i has the address 2000 + (i × 4).[4]
-
-The memory address of the first element of an array is called first address, foundation address, or base address.
-
-Because the mathematical concept of a matrix can be represented as a two-dimensional grid, two-dimensional arrays are also sometimes called matrices. In some cases the term "vector" is used in computing to refer to an array, although tuples rather than vectors are the more mathematically correct equivalent. Tables are often implemented in the form of arrays, especially lookup tables; the word table is sometimes used as a synonym of array.
-
-Arrays are among the oldest and most important data structures, and are used by almost every program. They are also used to implement many other data structures, such as lists and strings. They effectively exploit the addressing logic of computers. In most modern computers and many external storage devices, the memory is a one-dimensional array of words, whose indices are their addresses. Processors, especially vector processors, are often optimized for array operations.
-
-A one-dimensional array (or single dimension array) is a type of linear array. Accessing its elements involves a single subscript which can either represent a row or column index.
-
-As an example consider the C declaration int anArrayName[10]; which declares a one-dimensional array of ten integers. Here, the array can store ten elements of type int . This array has indices starting from zero through nine. For example, the expressions anArrayName[0] and anArrayName[9] are the first and last elements respectively.
-
-For a vector with linear addressing, the element with index i is located at the address B + c × i, where B is a fixed base address and c a fixed constant, sometimes called the address increment or stride.
-
-If the valid element indices begin at 0, the constant B is simply the address of the first element of the array. For this reason, the C programming language specifies that array indices always begin at 0; and many programmers will call that element "zeroth" rather than "first".
-
-However, one can choose the index of the first element by an appropriate choice of the base address B. For example, if the array has five elements, indexed 1 through 5, and the base address B is replaced by B + 30c, then the indices of those same elements will be 31 to 35. If the numbering does not start at 0, the constant B may not be the address of any element.
-</p>
-
+<div style="border: 2px solid yellow;">
+int data[100];  
 </div>
-          </div>
-    
+<hr>
+
+<h2>How to declare an array?</h2>
+<br>
+<div style="border: 2px solid yellow;">
+  dataType arrayName[arraySize];
 </div>
-  
-  
-    
-    
+
+
+<br>
+
+Example : 
+<br>
+<br>
+<div style="border: 2px solid yellow;">
+  float mark[5];
+</div>
+
+<br>
+
+
+Here, we declared an array, mark, of floating-point type. And its size is 5. Meaning, it can hold 5 floating-point values.
+It's important to note that the size and type of an array cannot be changed once it is declared.
+ 
+<hr>
+
+<h2>Access Array Elements</h2>
+<br>
+You can access elements of an array by indices.
+
+Suppose you declared an array mark as above. The first element is mark[0], the second element is mark[1] and so on.
+
+<img src="https://cdn.programiz.com/sites/tutorial2program/files/c-array-declaration.jpg">
+<br>
+Few keynotes:
+<br>
+<ul>
+
+<li>Arrays have 0 as the first index, not 1. In this example, mark[0] is the first element.</li>
+
+<li>If the size of an array is n, to access the last element, the n-1 index is used. In this example, mark[4]</li>
+<li>Suppose the starting address of mark[0] is 2120d. Then, the address of the mark[1] will be 2124d. Similarly, the address of mark[2] will be 2128d and so on.
+This is because the size of a float is 4 bytes.</li>
+
+
+</ul>
+
+<hr>
+
+<h2>How to initialize an array ?</h2>
+<br>
+It is possible to initialize an array during declaration. For example,
+<br>
+<div style="border: 2px solid yellow;">
+int mark[5] = {19, 10, 8, 17, 9};
+</div>
+
+You can also initialize an array like this.
+<div style="border: 2px solid yellow;">
+  int mark[] = {19, 10, 8, 17, 9};
   </div>
+  Here, we haven't specified the size. However, the compiler knows its size is 5 as we are initializing it with 5 elements.
+<center>
+
+<img src="https://cdn.programiz.com/sites/tutorial2program/files/c-array-initialization.jpg">
+
+</center>
+
+Here,
+<div style="border: 2px solid yellow;">
+  mark[0] is equal to 19<br>
+mark[1] is equal to 10<br>
+mark[2] is equal to 8<br>
+mark[3] is equal to 17<br>
+mark[4] is equal to 9<br>
+  </div>
+<hr>
+
+<h2>Change Value of Array Elements</h2>
+<div style="border: 2px solid yellow;">
+  int mark[5] = {19, 10, 8, 17, 9}
+<br>
+  // make the value of the third element to -1<br>
+  mark[2] = -1;<br>
+  
+  // make the value of the fifth element to 0<br>
+  mark[4] = 0;<br>
+  </div>
+<hr>
+
+
+
+<h2>Input and Output Array Elements</h2>
+Here's how you can take input from the user and store it in an array element - 
+<br>
+
+<div style="border: 2px solid yellow;">
+  // take input and store it in the 3rd element<br>
+  ​scanf("%d", &mark[2]);
+  <br>
+  // take input and store it in the ith element<br>
+  scanf("%d", &mark[i-1]);<br>
+  </div>
+  Here's how you can print an individual element of an array.
+  <br>
+
+<div style="border: 2px solid yellow;">
+  // print the first element of the array<br>
+  printf("%d", mark[0]);<br>
+  
+  // print the third element of the array<br>
+  printf("%d", mark[2]);<br>
+  
+  // print ith element of the array<br>
+  printf("%d", mark[i-1]);<br>
+  </div>
+
+  Example 1:Array Input and Output 
+  <div data-pym-src="https://www.jdoodle.com/embed/v0/2jw1">
+  </div>
+
+  Here, we have used a for loop to take 5 inputs from the user and store them in an array. Then, using another for loop, these elements are displayed on the screen.
+  <br>
+<hr>
+
+  Example 2: Calculate Average
+
+<div data-pym-src="https://www.jdoodle.com/embed/v0/2jw2
+">
+
 </div>
+Here, we have computed the average of n numbers entered by the user.
+<hr>
+
+<h2>Access elements out of its bound!</h2>
+<br>
+Suppose you declared an array of 10 elements. Let's say,
+<br>
+int testArray[10];
+<br>
+You can access the array elements from testArray[0] to testArray[9].
+<br>
+Now let's say if you try to access testArray[12]. The element is not available. This may cause unexpected output (undefined behavior). Sometimes you might get an error and some other time your program may run correctly.
+<br>
+Hence, you should never access elements of an array outside of its bound.
+<br>
+
+
+<hr>
+
+<h2>Multi-dimensional-Arrays</h2>
+<br>
+In C programming, you can create an array of arrays. These arrays are known as multidimensional arrays. For example,
+<br>
+float x[3][4];
+<br>
+Here, x is a two-dimensional (2d) array. The array can hold 12 elements. You can think the array as a table with 3 rows and each row has 4 columns.
+<br>
+<br>
+<center>
+<img src="https://cdn.programiz.com/sites/tutorial2program/files/two-dimensional-array_0.jpg">
+</center>
+<br>
+Similarly, you can declare a three-dimensional (3d) array. For example,
+<br>
+float y[2][4][3];
+<br>
+Here, the array y can hold 24 elements.
+<br>
+
+
+<hr>
+
+
+<h2>
+  Initialization of a 2d array
+</h2>
+
+<div style="border: 2px solid red;">
+  // Different ways to initialize two-dimensional array
+<br>
+  int c[2][3] = {{1, 3, 0}, {-1, 5, 9}};
+    <br>       
+  int c[][3] = {{1, 3, 0}, {-1, 5, 9}};
+        <br>          
+  int c[2][3] = {1, 3, 0, -1, 5, 9};
+<br>
+
+  </div>
+
+<hr>
+
+<h2>
+  Initialization of a 3d array
+
+</h2>
+You can initialize a three-dimensional array in a similar way like a two-dimensional array. Here's an example,
+
+
+<div style="border: 2px solid greenyellow;">
+  // Different ways to initialize two-dimensional array
+  <br>
+  int test[2][3][4] = {
+    <br>
+    {{3, 4, 2, 3}, {0, -3, 9, 11}, {23, 12, 23, 2}}<br>,
+    {{13, 4, 56, 3}, {5, 9, 3, 5}, {3, 1, 4, 9}}};
+    <br>
+
+  </div>
+<hr>
+
+<h2>
+  Example 1: Two-dimensional array to store and print values
+</h2>
+
+  <div data-pym-src="https://www.jdoodle.com/embed/v0/2jwb">
+  
+  </div>
+
+<hr>
+
+<h2>
+  Example 2: Sum of two matrices</h2>
+
+  <div data-pym-src="https://www.jdoodle.com/embed/v0/2jwb">
+  
+  </div>
+
+<hr>
+
+<h2>
+  Example 3: Three-dimensional array</h2>
+
+  <div data-pym-src="https://www.jdoodle.com/embed/v0/2jwb">
+  
+  </div>
+
+<hr>
+
+More Resources to learn arrays : 
+<ol>
+
+<li>
+  <a href="https://www.codechef.com/LRNDSA02">Link1
+  </a>
+</li>
+
+<li>
+  <a href="https://www.w3schools.com/java/java_arrays.asp">Link2
+  </a>
+</li>
+
+<li>
+  <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html">Link3
+  </a>
+  
+
+</li>
+
+<li>
+
+<a href="
+  https://www.tutorialspoint.com/computer_programming/computer_programming_arrays.htm">Link4
+</a>
+
+</li>
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+Practice problem on arrays : 
+
+<ul>
+
+
+  <li>
+
+<a href="https://www.codechef.com/tags/problems/arrays">
+Link1
+</a>
+
+  </li>
+
+  <li>
+
+<a href="https://www.hackerrank.com/domains/data-structures?filters%5Bsubdomains%5D%5B%5D=arrays">
+Link2
+</a>
+  </li>
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p>  
+</div>
+</div>    
+</div>
+</div>
+</div>
+
+ 
+
+<script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>
 
 
 
 </body>
 </html>
+
